@@ -12,7 +12,10 @@ RUN tar xfv source.tar.gz --strip-components=1
 
 WORKDIR /build/dnstt-server
 
-RUN go build -o /app/dnstt-server && rm -rf /build/*
+ENV CGO_ENABLED=0
+
+RUN go build -trimpath -ldflags="-s" -o /app/dnstt-server && \
+    rm -rf /build/*
 
 
 FROM docker.io/busybox:stable-uclibc AS main
