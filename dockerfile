@@ -12,10 +12,7 @@ RUN tar xfv source.tar.gz --strip-components=1
 
 WORKDIR /build/dnstt-server
 
-RUN go build && \
-    mkdir /app && \
-    cp /build/dnstt-server/dnstt-server /app/dnstt-server && \
-    rm -rf /build/*
+RUN go build -o /app/dnstt-server && rm -rf /build/*
 
 
 FROM docker.io/busybox:stable-uclibc AS main
