@@ -6,7 +6,7 @@ ARG VERSION
 
 WORKDIR /build
 
-RUN wget -O source.tar.gz https://repo.or.cz/dnstt.git/snapshot/refs/tags/$VERSION.tar.gz
+RUN wget -O source.tar.gz https://repo.or.cz/dnstt.git/snapshot/refs/tags/${VERSION}.tar.gz
 
 RUN tar xfv source.tar.gz --strip-components=1
 
